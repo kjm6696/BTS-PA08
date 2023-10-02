@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class BinarySearchTree {
     protected Node root;
 
@@ -59,4 +61,23 @@ public class BinarySearchTree {
         return false; // if not in the bst return false
     }
 
+    public Node rebalance(){
+        return this.rebalance(this.root);
+    }
+
+    public Node rebalance(Node root){
+        ArrayList<Integer> balanced = new ArrayList<>();
+        if (this.root != null) {
+            if (root.left != null) {
+                root = root.left;
+                root = rebalance(root);
+            } else if (root.right != null) {
+                root = root.right;
+                root.right = rebalance(root.right);
+            }
+        }
+        return root;
+    }
+
 }
+

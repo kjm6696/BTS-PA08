@@ -54,8 +54,27 @@ class BinarySearchTreeTest {
 
         assertTrue(tree.contains(15));
         assertFalse(tree.contains(9));
+
+        System.out.println(tree.rebalance());
     }
 
+    @Test
+    public void testRebalance() {
+        BinarySearchTree tree = new BinarySearchTree();
+        Album album = new Album(1, "RedHotChilliPeppers", "Californication", 20);
+        Album album1 = new Album(2, "Post Malone", "Austin", 15);
+        Album album3 = new Album(4, "Bon Jovi", "Bon Jovi", 10);
+        Album album2 = new Album(3, "Nirvana", "Nevermind", 5);
+        Album album4 = new Album(5, "Greenday", "Father of All", 13);
+
+        tree.insert(album.songs);
+        tree.insert(album1.songs);
+        tree.insert(album2.songs);
+        tree.insert(album3.songs);
+        tree.insert(album4.songs);
+
+        System.out.println(tree.rebalance().toString());
+    }
 
 
 }
