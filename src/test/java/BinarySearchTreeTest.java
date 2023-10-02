@@ -34,12 +34,12 @@ class BinarySearchTreeTest {
         tree.insert(album3.songs);
         tree.insert(album4.songs);
 
-        tree.delete(tree.root.left, 12);
-        assertEquals(13, tree.root.left.data);
-        assertEquals(null, tree.root.left.right.data);
-        assertEquals(9, tree.root.left.left.data);
+        tree.delete(tree.root.left, 12);// deletes album 12
+        assertEquals(13, tree.root.left.data); //make sure that left is now 13 after deleting 12
+        assertEquals(null, tree.root.left.right.data); // make sure that that 13 is now the parent not the child
+        assertEquals(9, tree.root.left.left.data);// make sure that 9 was not removed or moved
         tree.delete(tree.root.right, 18);
-        assertEquals(null, tree.root.right.data);
+        assertEquals(null, tree.root.right.data);// single deltes with no leafs/ children works
     }
 
 
