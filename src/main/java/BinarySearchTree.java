@@ -21,12 +21,12 @@ public class BinarySearchTree {
         return current;
     }
 
-    public Node delete(Node root, int index) {
+    public Node delete(Node root, int data) {
         if (this.root != null) { // if root is not empty
-            if (index < root.data) { // if item wanted to delete is on left side of tree
-                root.left = delete(root.left, index); //keep running delete method until items is found
-            } else if (index > root.data) { // if item wanted to delete is on right side of tree
-                root.right = delete(root.right, index); //keep running delete method until items is found
+            if (data < root.data) { // if item wanted to delete is on left side of tree
+                root.left = delete(root.left, data); //keep running delete method until items is found
+            } else if (data > root.data) { // if item wanted to delete is on right side of tree
+                root.right = delete(root.right, data); //keep running delete method until items is found
             } else { // item found now delete
                 if (root.right == null && root.left == null) { // if desired item has no children
                     root.data = null; // delete node
@@ -44,25 +44,19 @@ public class BinarySearchTree {
         }
         return root;// return the new BST
     }
-
-//    public String inOrderTraversal(){
-//        return this.inOrderTraversal(this.root);
-//    }
-//    private String inOrderTraversal(Node current){
-//        StringBuilder stringBuilder = new StringBuilder();
-//
-//        if (current != null) {
-//
-//            stringBuilder.append(this.inOrderTraversal(current.left));
-//
-//            stringBuilder.append(current.data);
-//            stringBuilder.append(" ");
-//
-//            stringBuilder.append(this.inOrderTraversal(current.right));
-//
-//        }
-//
-//        return stringBuilder.toString();
-//    }
+    public boolean contains(int data) {
+        if (this.root != null) {
+            if(data != root.data) {
+                if (data < root.data) {
+                    return data == root.left.data;
+                } else {
+                    return data == root.right.data;
+                }
+            } else {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }

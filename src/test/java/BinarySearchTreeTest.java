@@ -42,5 +42,19 @@ class BinarySearchTreeTest {
         assertEquals(null, tree.root.right.data);// single deltes with no leafs/ children works
     }
 
+    @Test
+    public void testSearch() {
+        BinarySearchTree tree = new BinarySearchTree();
+        Album album = new Album(1, "RedHotChilliPeppers", "Californication", 15);
+        Album album1 = new Album(2, "Post Malone", "Austin", 18);
+        Album album2 = new Album(3, "Nirvana", "Nevermind", 12);
+        tree.insert(album.songs);
+        tree.insert(album1.songs);
+        tree.insert(album2.songs);
+
+        tree.contains(15);
+    }
+
+
 
 }
