@@ -79,5 +79,26 @@ public class BinarySearchTree {
         return root;
     }
 
+    public ArrayList<String> partition(Integer data) {
+        ArrayList<String> list = new ArrayList<>();
+        if (this.root != null) {
+            if (root.data >= data){
+                list.add(root.data.toString());
+                if (root.left.data != null) {
+                    root.data = root.left.data;
+                    partition(root.data);
+
+                } else{
+                    if (root.right.data >= data) {
+                        list.add(root.right.data.toString());
+                        root.data = root.right.data;
+                        partition(root.data);
+                    }
+                }
+            }
+        }
+        return list;
+    }
+
 }
 
