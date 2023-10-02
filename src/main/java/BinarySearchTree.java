@@ -45,18 +45,18 @@ public class BinarySearchTree {
         return root;// return the new BST
     }
     public boolean contains(int data) {
-        if (this.root != null) {
-            if(data != root.data) {
-                if (data < root.data) {
-                    return data == root.left.data;
-                } else {
-                    return data == root.right.data;
+        if (this.root != null) { // if bst is not empty
+            if(data != root.data) { // if data != the root number
+                if (data < root.data) { // if data is on left side
+                    return data == root.left.data; // return true if data == left child
+                } else { // if data is on right side
+                    return data == root.right.data; // return true if data == right child
                 }
-            } else {
+            } else { // if data == root (parent) return true
                 return true;
             }
         }
-        return false;
+        return false; // if not in the bst return false
     }
 
 }

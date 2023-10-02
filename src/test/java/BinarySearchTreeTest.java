@@ -52,7 +52,8 @@ class BinarySearchTreeTest {
         tree.insert(album1.songs);
         tree.insert(album2.songs);
 
-        tree.contains(15);
+        assertTrue(tree.contains(15));
+        assertFalse(tree.contains(9));
     }
 
 
